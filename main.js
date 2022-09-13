@@ -5,9 +5,11 @@ const sliderValue = document.getElementById("slider-value");
 const canvasSize = document.getElementById("canvas-size");
 const btnSetDefaultColor = document.getElementById("default-colors");
 const btnSetRandomColors = document.getElementById("random-colors");
+const btnErase = document.getElementById("erase");
+const btnClear = document.getElementById("clear");
 
 const DEFAULT_COLOR = "#000";
-
+const DEFAULT_BACKGROUND_COLOR = "#ccc";
 const randomColors = [
   "#ffadad",
   "#ffd6a5",
@@ -48,6 +50,26 @@ btnSetDefaultColor.addEventListener("click", () => {
     }
     console.log(e);
   });
+});
+
+// when hovering, set the background color to default one
+// act as an eraser
+btnErase.addEventListener("click", () => {
+  canvas.addEventListener("mouseover", (e) => {
+    //this if statement ignores the canvas when hovering
+    // only selects the divs inside the canvas div
+    if (e.target.id !== "canvas") {
+      draw(e.target, DEFAULT_BACKGROUND_COLOR);
+    }
+    console.log(e);
+  });
+});
+
+// clear the whole canvas
+btnClear.addEventListener("click", () => {
+  for (let i = 0; i < canvas.childElementCount; i++) {
+    canvas.childNodes[i].style.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+  }
 });
 
 // set the canvas size
