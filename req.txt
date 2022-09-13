@@ -19,3 +19,5 @@
 will use the css grid system
 grid system will start from 1 column grid all the way to 100 columns
 js function will generate a number of divs based on user input
+
+** add a slider to change the size of the canvas

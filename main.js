@@ -3,14 +3,36 @@ const sideBar = document.getElementById("side-bar");
 const canvas = document.getElementById("canvas");
 const sliderValue = document.getElementById("slider-value");
 const canvasSize = document.getElementById("canvas-size");
+const btnSetDefaultColor = document.getElementById("default-colors");
+const btnSetRnadomColors = document.getElementById("random-colors");
 
 const DEFAULT_COLOR = "#000";
+
+const $randomColors = [
+  "#ffadad",
+  "#ffd6a5",
+  "#fdffb6",
+  "#caffbf",
+  "#9bf6ff",
+  "#a0c4ff",
+  "#bdb2ff",
+  "#ffc6ff",
+  "#fffffc",
+];
+
+// at the beginning color is set to default color
+let color = DEFAULT_COLOR;
 
 // this will generate the canvas for the first time using the default values
 // if this is not present canvas will not have any pixels until the user changes the slide value
 window.onload = function () {
   generateCanvasPixels(canvas);
 };
+
+// set the default color
+btnSetDefaultColor.addEventListener("click", () => {
+  color = DEFAULT_COLOR;
+});
 
 // set the canvas size
 canvasSize.addEventListener("input", () => {
@@ -24,7 +46,7 @@ canvas.addEventListener("mouseover", (e) => {
   //this if statement ignores the canvas when hovering
   // only selects the divs inside the canvas div
   if (e.target.id !== "canvas") {
-    draw(e.target);
+    draw(e.target, color);
   }
   console.log(e);
 });
@@ -43,6 +65,6 @@ function generateCanvasPixels(canvas, noOfColumnsPerSide = 16) {
   }
 }
 
-function draw(element, backgroundColor = DEFAULT_COLOR) {
+function draw(element, backgroundColor) {
   element.style.backgroundColor = backgroundColor;
 }
