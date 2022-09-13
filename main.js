@@ -6,17 +6,23 @@ const canvasSize = document.getElementById("canvas-size");
 
 const DEFAULT_COLOR = "#000";
 
+// this will generate the canvas for the first time using the default values
+// if this is not present canvas will not have any pixels until the user changes the slide value
+window.onload = function () {
+  generateCanvasPixels(canvas);
+};
+
+// set the canvas size
 canvasSize.addEventListener("input", () => {
+  // output the canvas size to the user
   sliderValue.textContent = `${canvasSize.value} x ${canvasSize.value}`;
   generateCanvasPixels(canvas, canvasSize.value);
   console.log(canvasSize.value);
 });
 
-window.onload = function () {
-  generateCanvasPixels(canvas);
-};
-
 canvas.addEventListener("mouseover", (e) => {
+  //this if statement ignores the canvas when hovering
+  // only selects the divs inside the canvas div
   if (e.target.id !== "canvas") {
     draw(e.target);
   }
@@ -24,7 +30,9 @@ canvas.addEventListener("mouseover", (e) => {
 });
 
 function generateCanvasPixels(canvas, noOfColumnsPerSide = 16) {
+  //remove all the previously added classes to set a new grid size
   canvas.setAttribute("class", "");
+  // remove all the children in the canvas to add new ones according the new grid size
   canvas.innerHTML = "";
   // add the grid class to canvas
   canvas.classList.add(`grid-${noOfColumnsPerSide}`);
