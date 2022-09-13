@@ -50,6 +50,7 @@ btnClear.addEventListener("click", () => {
   for (let i = 0; i < canvas.childElementCount; i++) {
     canvas.childNodes[i].style.backgroundColor = DEFAULT_BACKGROUND_COLOR;
   }
+  draw(DEFAULT_COLOR);
 });
 
 // set the canvas size
