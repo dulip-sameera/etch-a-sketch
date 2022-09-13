@@ -8,12 +8,23 @@
 #container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+#container .title {
+  letter-spacing: 10px;
+  font-size: 40px;
+}
+#container .main {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
   background-color: #fcfcfc;
 }
-#container #side-bar {
+#container .main #side-bar {
   box-sizing: border-box;
   width: 300px;
   height: 600px;
@@ -26,17 +37,17 @@
   align-items: center;
   justify-content: space-around;
 }
-#container #side-bar .canvas-size-slider {
+#container .main #side-bar .canvas-size-slider {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-#container #side-bar .canvas-size-slider #slider-value {
+#container .main #side-bar .canvas-size-slider #slider-value {
   font-size: 20px;
   color: #1a1a1a;
 }
-#container #side-bar .canvas-size-slider .canvas-slider {
+#container .main #side-bar .canvas-size-slider .canvas-slider {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -48,10 +59,10 @@
   outline: none;
   margin-top: 10px;
 }
-#container #side-bar .canvas-size-slider .canvas-slider:hover {
+#container .main #side-bar .canvas-size-slider .canvas-slider:hover {
   opacity: 1;
 }
-#container #side-bar .canvas-size-slider .canvas-slider::-webkit-slider-thumb {
+#container .main #side-bar .canvas-size-slider .canvas-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -60,7 +71,7 @@
   background-color: #000;
   cursor: pointer;
 }
-#container .btn {
+#container .main .btn {
   width: 80%;
   height: 30px;
   border-radius: 10px;
@@ -69,7 +80,7 @@
   letter-spacing: 1px;
   background-color: #000;
 }
-#container .btn:hover {
+#container .main .btn:hover {
   color: #000;
   background-color: #fff;
   box-shadow: 2px 3px gray;
@@ -77,7 +88,7 @@
   transform: scale(1.1);
   transition: 300ms;
 }
-#container #canvas {
+#container .main #canvas {
   width: 600px;
   height: 600px;
   border: 1px solid grey;

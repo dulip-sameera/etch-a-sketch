@@ -10,89 +10,101 @@
 #container {
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   gap: 50px;
-  background-color: lighten($backgroundColor, 99%);
+  justify-content: center;
+  align-items: center;
 
-  #side-bar {
-    box-sizing: border-box;
-    width: 300px;
-    height: 600px;
-    border: none;
-    padding: 50px;
-    background-color: lighten($backgroundColor, 80%);
-    border-radius: 10px;
-
+  .title {
+    letter-spacing: 10px;
+    font-size: 40px;
+  }
+  .main {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
+    background-color: lighten($backgroundColor, 99%);
 
-    .canvas-size-slider {
+    #side-bar {
+      box-sizing: border-box;
+      width: 300px;
+      height: 600px;
+      border: none;
+      padding: 50px;
+      background-color: lighten($backgroundColor, 80%);
+      border-radius: 10px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      justify-content: space-around;
 
-      #slider-value {
-        font-size: 20px;
-        color: $primaryFontColor;
-      }
-
-      .canvas-slider {
-        -webkit-appearance: none;
-        appearance: none;
+      .canvas-size-slider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
-        height: 15px;
-        border-radius: 10px;
-        opacity: 0.7;
-        -webkit-transition: 0.2s;
-        transition: opacity 0.2s;
-        outline: none;
-        margin-top: 10px;
 
-        &:hover {
-          opacity: 1;
+        #slider-value {
+          font-size: 20px;
+          color: $primaryFontColor;
         }
 
-        &::-webkit-slider-thumb {
+        .canvas-slider {
           -webkit-appearance: none;
           appearance: none;
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          background-color: $secondaryColor;
-          cursor: pointer;
+          width: 100%;
+          height: 15px;
+          border-radius: 10px;
+          opacity: 0.7;
+          -webkit-transition: 0.2s;
+          transition: opacity 0.2s;
+          outline: none;
+          margin-top: 10px;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: $secondaryColor;
+            cursor: pointer;
+          }
         }
       }
     }
-  }
 
-  .btn {
-    width: 80%;
-    height: 30px;
-    border-radius: 10px;
-    border: none;
-    color: $primaryColor;
-    letter-spacing: 1px;
-    background-color: $btnBackgroundColor;
+    .btn {
+      width: 80%;
+      height: 30px;
+      border-radius: 10px;
+      border: none;
+      color: $primaryColor;
+      letter-spacing: 1px;
+      background-color: $btnBackgroundColor;
 
-    &:hover {
-      color: $secondaryFontColor;
-      background-color: $primaryColor;
-      box-shadow: 2px 3px lighten($secondaryColor, 50%);
-      cursor: pointer;
-      transform: scale(1.1);
-      transition: 300ms;
+      &:hover {
+        color: $secondaryFontColor;
+        background-color: $primaryColor;
+        box-shadow: 2px 3px lighten($secondaryColor, 50%);
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 300ms;
+      }
     }
-  }
 
-  #canvas {
-    width: 600px;
-    height: 600px;
-    border: 1px solid grey;
-    background-color: lighten($backgroundColor, 80%);
+    #canvas {
+      width: 600px;
+      height: 600px;
+      border: 1px solid grey;
+      background-color: lighten($backgroundColor, 80%);
+    }
   }
 }
 

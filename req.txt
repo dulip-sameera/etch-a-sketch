@@ -9,7 +9,6 @@
 ** when hover over the canvas, each div should change its background color.
 *** when default color selected background colors will be default colors.
 *** when random colors selected background color will be a random color         *** decided by the program.
-*** when specific color selected background color will be the selected color.
 *** when erase selected, hover over the divs that already have a background  *** color to set it to the initial background color.
 *** when clear button selected whole canvas should set to the initial        *** background color.
 

@@ -1,4 +1,4 @@
-const container = document.getElementById("container");
+const mainSection = document.getElementById("main");
 const sideBar = document.getElementById("side-bar");
 const canvas = document.getElementById("canvas");
 const sliderValue = document.getElementById("slider-value");
@@ -26,43 +26,23 @@ const randomColors = [
 // if this is not present canvas will not have any pixels until the user changes the slide value
 window.onload = function () {
   generateCanvasPixels(canvas);
+  draw(DEFAULT_COLOR);
 };
 
 // use random colors(defined in the randomColors array) when hovering over the divs
 btnSetRandomColors.addEventListener("click", () => {
-  canvas.addEventListener("mouseover", (e) => {
-    //this if statement ignores the canvas when hovering
-    // only selects the divs inside the canvas div
-    if (e.target.id !== "canvas") {
-      draw(e.target, getRandomColor(randomColors));
-    }
-    console.log(e);
-  });
+  draw(randomColors, true);
 });
 
 // set the default color
 btnSetDefaultColor.addEventListener("click", () => {
-  canvas.addEventListener("mouseover", (e) => {
-    //this if statement ignores the canvas when hovering
-    // only selects the divs inside the canvas div
-    if (e.target.id !== "canvas") {
-      draw(e.target, DEFAULT_COLOR);
-    }
-    console.log(e);
-  });
+  draw(DEFAULT_COLOR);
 });
 
 // when hovering, set the background color to default one
 // act as an eraser
 btnErase.addEventListener("click", () => {
-  canvas.addEventListener("mouseover", (e) => {
-    //this if statement ignores the canvas when hovering
-    // only selects the divs inside the canvas div
-    if (e.target.id !== "canvas") {
-      draw(e.target, DEFAULT_BACKGROUND_COLOR);
-    }
-    console.log(e);
-  });
+  draw(DEFAULT_BACKGROUND_COLOR);
 });
 
 // clear the whole canvas
@@ -80,15 +60,6 @@ canvasSize.addEventListener("input", () => {
   console.log(canvasSize.value);
 });
 
-canvas.addEventListener("mouseover", (e) => {
-  //this if statement ignores the canvas when hovering
-  // only selects the divs inside the canvas div
-  if (e.target.id !== "canvas") {
-    draw(e.target, DEFAULT_COLOR);
-  }
-  console.log(e);
-});
-
 function generateCanvasPixels(canvas, noOfColumnsPerSide = 16) {
   //remove all the previously added classes to set a new grid size
   canvas.setAttribute("class", "");
@@ -103,8 +74,20 @@ function generateCanvasPixels(canvas, noOfColumnsPerSide = 16) {
   }
 }
 
-function draw(element, backgroundColor) {
-  element.style.backgroundColor = backgroundColor;
+function draw(backgroundColor, randomColors = false) {
+  canvas.addEventListener("mouseover", (e) => {
+    //this if statement ignores the canvas when hovering
+    // only selects the divs inside the canvas div
+    if (e.target.id !== "canvas") {
+      if (randomColors === false) {
+        e.target.style.backgroundColor = backgroundColor;
+      } else {
+        e.target.style.backgroundColor = getRandomColor(backgroundColor);
+        randomColors == true;
+      }
+    }
+    console.log(e);
+  });
 }
 
 function getRandomColor(colors) {

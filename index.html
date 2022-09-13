@@ -9,24 +9,27 @@
   </head>
   <body>
     <div id="container">
-      <div id="side-bar">
-        <button id="default-colors" class="btn">Default Colors</button>
-        <button id="random-colors" class="btn">Random Colors</button>
-        <button id="erase" class="btn">Erase</button>
-        <button id="clear" class="btn">Clear</button>
-        <div class="canvas-size-slider">
-          <div id="slider-value">16 x 16</div>
-          <input
-            type="range"
-            id="canvas-size"
-            class="canvas-slider"
-            min="1"
-            max="100"
-            value="16"
-          />
+      <h1 class="title">Etch-A-Sketch</h1>
+      <section id="main" class="main">
+        <div id="side-bar">
+          <button id="default-colors" class="btn">Default Color</button>
+          <button id="random-colors" class="btn">Random Colors</button>
+          <button id="erase" class="btn">Erase</button>
+          <button id="clear" class="btn">Clear</button>
+          <div class="canvas-size-slider">
+            <div id="slider-value">16 x 16</div>
+            <input
+              type="range"
+              id="canvas-size"
+              class="canvas-slider"
+              min="1"
+              max="100"
+              value="16"
+            />
+          </div>
         </div>
-      </div>
-      <div id="canvas"></div>
+        <div id="canvas"></div>
+      </section>
     </div>
     <script src="./main.js"></script>
   </body>
