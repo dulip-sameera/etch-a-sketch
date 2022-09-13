@@ -4,11 +4,11 @@ const canvas = document.getElementById("canvas");
 const sliderValue = document.getElementById("slider-value");
 const canvasSize = document.getElementById("canvas-size");
 const btnSetDefaultColor = document.getElementById("default-colors");
-const btnSetRnadomColors = document.getElementById("random-colors");
+const btnSetRandomColors = document.getElementById("random-colors");
 
 const DEFAULT_COLOR = "#000";
 
-const $randomColors = [
+const randomColors = [
   "#ffadad",
   "#ffd6a5",
   "#fdffb6",
@@ -20,18 +20,34 @@ const $randomColors = [
   "#fffffc",
 ];
 
-// at the beginning color is set to default color
-let color = DEFAULT_COLOR;
-
 // this will generate the canvas for the first time using the default values
 // if this is not present canvas will not have any pixels until the user changes the slide value
 window.onload = function () {
   generateCanvasPixels(canvas);
 };
 
+// use random colors(defined in the randomColors array) when hovering over the divs
+btnSetRandomColors.addEventListener("click", () => {
+  canvas.addEventListener("mouseover", (e) => {
+    //this if statement ignores the canvas when hovering
+    // only selects the divs inside the canvas div
+    if (e.target.id !== "canvas") {
+      draw(e.target, getRandomColor(randomColors));
+    }
+    console.log(e);
+  });
+});
+
 // set the default color
 btnSetDefaultColor.addEventListener("click", () => {
-  color = DEFAULT_COLOR;
+  canvas.addEventListener("mouseover", (e) => {
+    //this if statement ignores the canvas when hovering
+    // only selects the divs inside the canvas div
+    if (e.target.id !== "canvas") {
+      draw(e.target, DEFAULT_COLOR);
+    }
+    console.log(e);
+  });
 });
 
 // set the canvas size
@@ -46,7 +62,7 @@ canvas.addEventListener("mouseover", (e) => {
   //this if statement ignores the canvas when hovering
   // only selects the divs inside the canvas div
   if (e.target.id !== "canvas") {
-    draw(e.target, color);
+    draw(e.target, DEFAULT_COLOR);
   }
   console.log(e);
 });
@@ -67,4 +83,8 @@ function generateCanvasPixels(canvas, noOfColumnsPerSide = 16) {
 
 function draw(element, backgroundColor) {
   element.style.backgroundColor = backgroundColor;
+}
+
+function getRandomColor(colors) {
+  return colors[Math.floor(Math.random() * 9)];
 }
