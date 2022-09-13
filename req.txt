@@ -1,0 +1,21 @@
+* build the canvas -> generate the canvas
+* add a button -> set the canvas size
+* add a button -> set to default colors
+* add a button -> set to random colors
+* add a button -> set to specific color
+* add a button -> erase
+* add a button -> clear
+
+* behaviors
+** when hover over the canvas, each div should change its background color.
+*** when default color selected background colors will be default colors.
+*** when random colors selected background color will be a random color         *** decided by the program.
+*** when specific color selected background color will be the selected color.
+*** when erase selected, hover over the divs that already have a background  *** color to set it to the initial background color.
+*** when clear button selected whole canvas should set to the initial        *** background color.
+
+** build the canvas
+
+will use the css grid system
+grid system will start from 1 column grid all the way to 100 columns
+js function will generate a number of divs based on user input

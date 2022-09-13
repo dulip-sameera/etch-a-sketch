@@ -1,3 +1,5 @@
+@import "./variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -13,12 +15,19 @@
   #side-bar {
     width: 300px;
     height: 600px;
-    border: 1px solid black;
+    border: 1px solid $borderColor;
   }
 
   #canvas {
     width: 600px;
     height: 600px;
-    border: 1px solid black;
+    border: 1px solid $borderColor;
+  }
+}
+
+@for $i from 1 to 101 {
+  .grid-#{$i} {
+    display: grid;
+    grid-template-columns: repeat($i, auto);
   }
 }
