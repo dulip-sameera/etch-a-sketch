@@ -9,7 +9,19 @@
   </head>
   <body>
     <div id="container">
-      <div id="side-bar"></div>
+      <div id="side-bar">
+        <div class="canvas-size-slider">
+          <div id="slider-value">16 x 16</div>
+          <input
+            type="range"
+            id="canvas-size"
+            class="canvas-slider"
+            min="1"
+            max="100"
+            value="16"
+          />
+        </div>
+      </div>
       <div id="canvas"></div>
     </div>
     <script src="./main.js"></script>

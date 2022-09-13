@@ -11,17 +11,67 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
+  background-color: lighten($backgroundColor, 99%);
 
   #side-bar {
+    box-sizing: border-box;
     width: 300px;
     height: 600px;
-    border: 1px solid $borderColor;
+    border: none;
+    padding: 50px;
+    background-color: lighten($backgroundColor, 80%);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .canvas-size-slider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      #slider-value {
+        font-size: 20px;
+        color: darken($primaryFontColor, 90%);
+      }
+
+      .canvas-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 10px;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        outline: none;
+        margin-top: 10px;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: $secondaryColor;
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   #canvas {
     width: 600px;
     height: 600px;
-    border: 1px solid $borderColor;
+    border: 1px solid grey;
+    background-color: lighten($backgroundColor, 80%);
   }
 }
 

@@ -1,5 +1,5 @@
 * build the canvas -> generate the canvas
-* add a button -> set the canvas size
+* add a slider -> set the canvas size
 * add a button -> set to default colors
 * add a button -> set to random colors
 * add a button -> set to specific color

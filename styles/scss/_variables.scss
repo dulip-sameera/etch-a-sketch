@@ -1,3 +1,23 @@
 $primaryColor: #fff;
 $secondaryColor: #000;
 $borderColor: $secondaryColor;
+
+$backgroundColor: $secondaryColor;
+
+$primaryFontColor: $primaryColor;
+$secondaryFontColor: $secondaryColor;
+$btnBackgroundColor: $secondaryColor;
+
+$boxShadowColor: lighten($btnBackgroundColor, 10%);
+
+$randomColors: (
+  "color-1": #ffadad,
+  "color-2": #ffd6a5,
+  "color-3": #fdffb6,
+  "color-4": #caffbf,
+  "color-5": #9bf6ff,
+  "color-6": #a0c4ff,
+  "color-7": #bdb2ff,
+  "color-8": #ffc6ff,
+  "color-9": #fffffc,
+);
